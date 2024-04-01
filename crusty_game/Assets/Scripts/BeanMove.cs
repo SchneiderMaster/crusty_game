@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,7 +40,8 @@ public class BeanMove : MonoBehaviour
         if (Cursor.lockState.Equals(CursorLockMode.Locked))
         {
             this.transform.Rotate(0 , Input.GetAxisRaw("Mouse X"), 0);
-            cam.transform.RotateAround(this.transform.position, Input.GetAxisRaw("Mouse Y"));
+            cam.transform.RotateAround(this.transform.position, new Vector3(Mathf.Abs(this.transform.rotation.y), 0, 1- Mathf.Abs(this.transform.rotation.y)), Input.GetAxisRaw("Mouse Y"));
+            print(Mathf.Abs(this.transform.rotation.y) + "; " + (1 - Mathf.Abs(this.transform.rotation.y)));
         }
 
 
