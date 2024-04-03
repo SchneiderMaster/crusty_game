@@ -10,7 +10,7 @@ public class BeanMove : MonoBehaviour
 
     public float speed;
 
-    public float rotationX = 0f;
+    private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,13 @@ public class BeanMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        RaycastHit hit;
+        isGrounded = Physics.Raycast(this.transform.position, Vector3.down, out hit, 1.2f);
+
+        Debug.DrawRay(transform.position, Vector3.down * 1.2f, isGrounded ? Color.green : Color.red);
+
+
         if (Input.GetKey(KeyCode.W))
         {
             this.transform.Translate(0, 0, speed * 0.01f);
@@ -38,7 +45,7 @@ public class BeanMove : MonoBehaviour
         {
             this.transform.Translate(speed * 0.01f, 0, 0);
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
             this.GetComponent<Rigidbody>().AddForce(0, 10, 0);
         }
@@ -47,6 +54,10 @@ public class BeanMove : MonoBehaviour
         {
             this.transform.Rotate(0 , Input.GetAxisRaw("Mouse X"), 0);
         }
+
+
+
+
 
 
     }
