@@ -46,6 +46,7 @@ public class BeanMove : MonoBehaviour
         if (Cursor.lockState.Equals(CursorLockMode.Locked))
         {
             this.transform.Rotate(0 , Input.GetAxisRaw("Mouse X"), 0);
+            cam.transform.RotateAround(this.transform.position, Input.GetAxisRaw("Mouse Y"));
         }
 
 
