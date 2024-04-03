@@ -10,6 +10,8 @@ public class BeanMove : MonoBehaviour
 
     public float speed;
 
+    public float rotationX = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +38,14 @@ public class BeanMove : MonoBehaviour
         {
             this.transform.Translate(speed * 0.01f, 0, 0);
         }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            this.GetComponent<Rigidbody>().AddForce(0, 100, 0);
+        }
 
         if (Cursor.lockState.Equals(CursorLockMode.Locked))
         {
             this.transform.Rotate(0 , Input.GetAxisRaw("Mouse X"), 0);
-            cam.transform.RotateAround(this.transform.position, new Vector3(Mathf.Abs(this.transform.rotation.y), 0, 1- Mathf.Abs(this.transform.rotation.y)), Input.GetAxisRaw("Mouse Y"));
-            print(Mathf.Abs(this.transform.rotation.y) + "; " + (1 - Mathf.Abs(this.transform.rotation.y)));
         }
 
 
