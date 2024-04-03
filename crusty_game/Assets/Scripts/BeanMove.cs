@@ -40,13 +40,12 @@ public class BeanMove : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            this.GetComponent<Rigidbody>().AddForce(0, 100, 0);
+            this.GetComponent<Rigidbody>().AddForce(0, 10, 0);
         }
-
+        
         if (Cursor.lockState.Equals(CursorLockMode.Locked))
         {
             this.transform.Rotate(0 , Input.GetAxisRaw("Mouse X"), 0);
-            cam.transform.RotateAround(this.transform.position, Input.GetAxisRaw("Mouse Y"));
         }
 
 
