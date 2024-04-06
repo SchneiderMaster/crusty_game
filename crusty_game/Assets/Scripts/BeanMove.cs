@@ -26,7 +26,6 @@ public class BeanMove : MonoBehaviour
         RaycastHit hit;
         isGrounded = Physics.Raycast(this.transform.position, Vector3.down, out hit, 1.2f);
 
-        Debug.DrawRay(transform.position, Vector3.down * 1.2f, isGrounded ? Color.green : Color.red);
 
 
         if (Input.GetKey(KeyCode.W))

@@ -17,5 +17,6 @@ public class LookAtCool : MonoBehaviour
     void Update()
     {
         this.transform.LookAt(new Vector3(cam.transform.position.x, this.transform.position.y, cam.transform.position.z));
+        this.transform.Rotate(0, 180, 0);
     }
 }
