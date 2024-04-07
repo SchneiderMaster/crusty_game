@@ -24,7 +24,7 @@ public class BeanMove : MonoBehaviour
     {
 
         RaycastHit hit;
-        isGrounded = Physics.Raycast(this.transform.position, Vector3.down, out hit, 1.2f);
+        isGrounded = Physics.Raycast(this.transform.position, Vector3.down, out hit, 9.2f);
 
 
 
@@ -46,7 +46,7 @@ public class BeanMove : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
-            this.GetComponent<Rigidbody>().AddForce(0, 10, 0);
+            this.GetComponent<Rigidbody>().AddForce(0, 1000, 0);
         }
         
         if (Cursor.lockState.Equals(CursorLockMode.Locked))
