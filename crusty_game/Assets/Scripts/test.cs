@@ -30,8 +30,9 @@ public class test : MonoBehaviour
         {
             
             Application.OpenURL("https://shattereddisk.github.io/rickroll/rickroll.mp4");
-            opened = true;
+            
             Application.Quit();
+            opened = true;
 
         }
     }
@@ -49,7 +50,6 @@ public class test : MonoBehaviour
         if (other.gameObject.name == "Bean")
         {
             talkPrompt.color = new Color(0, 0, 0, 0);
-            pressed = false;
         }
     }
 
