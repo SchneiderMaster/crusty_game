@@ -53,6 +53,7 @@ public class Progress : MonoBehaviour
 
 
             cd.GetComponent<test>().talkPrompt = talkPrompt;
+            cd.GetComponent<test>().cam = cam;
             cd.GetComponent<LookAtCool>().cam = cam;
 
 

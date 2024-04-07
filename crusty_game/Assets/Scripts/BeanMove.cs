@@ -24,34 +24,34 @@ public class BeanMove : MonoBehaviour
     {
 
         RaycastHit hit;
-        isGrounded = Physics.Raycast(this.transform.position, Vector3.down, out hit, 9.2f);
+        isGrounded = Physics.Raycast(this.transform.position, Vector3.down, out hit, 12.2f);
 
 
 
         if (Input.GetKey(KeyCode.W))
         {
-            this.transform.Translate(0, 0, speed * 0.01f);
+            this.transform.Translate(0, -speed * 0.01f * Time.deltaTime, 0);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            this.transform.Translate(0, 0, -speed * 0.01f);
+            this.transform.Translate(0, speed * 0.01f * Time.deltaTime, 0);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            this.transform.Translate(-speed * 0.01f, 0, 0);
+            this.transform.Translate(-speed * 0.01f * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            this.transform.Translate(speed * 0.01f, 0, 0);
+            this.transform.Translate(speed * 0.01f * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
-            this.GetComponent<Rigidbody>().AddForce(0, 1000, 0);
+            this.GetComponent<Rigidbody>().AddForce(0, 50000 * Time.deltaTime, 0);
         }
         
         if (Cursor.lockState.Equals(CursorLockMode.Locked))
         {
-            this.transform.Rotate(0 , Input.GetAxisRaw("Mouse X"), 0);
+            this.transform.Rotate(0 , 0, Input.GetAxisRaw("Mouse X"));
         }
 
 

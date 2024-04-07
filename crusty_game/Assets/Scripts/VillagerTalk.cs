@@ -7,7 +7,6 @@ using UnityEngine;
 public class VillagerTalk : MonoBehaviour
 {
 
-    public CapsuleCollider talkZone;
     public TextMeshProUGUI talkPrompt;
     public TextMeshProUGUI dialog;
     public String dialogText;
@@ -27,21 +26,30 @@ public class VillagerTalk : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        talkPrompt.color = new Color(255, 0, 255, 1);
+        if (other.gameObject.name == "Bean")
+        {
+            talkPrompt.color = new Color(255, 0, 255, 1);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        talkPrompt.color = new Color(0, 0, 0, 0);
-        dialog.text = "";
+        if (other.gameObject.name == "Bean")
+        {
+            talkPrompt.color = new Color(0, 0, 0, 0);
+            dialog.text = "";
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(KeyCode.E))
+        if (other.gameObject.name == "Bean")
         {
-            dialog.text = dialogText;
-            talkPrompt.color = new Color(0, 0, 0, 0);
+            if (Input.GetKey(KeyCode.E))
+            {
+                dialog.text = dialogText;
+                talkPrompt.color = new Color(0, 0, 0, 0);
+            }
         }
     }
 }

@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class videoooo : MonoBehaviour
 {
 
-
+    public AudioClip clip;
     VideoPlayer gamer;
 
     // Start is called before the first frame update
@@ -26,8 +23,13 @@ public class videoooo : MonoBehaviour
         {
             Destroy(gamer);
             this.transform.parent.AddComponent<BeanMove>();
-            this.transform.parent.GetComponent<BeanMove>().speed = 5;
+            this.transform.parent.GetComponent<BeanMove>().speed = 6000;
             this.transform.parent.GetComponent<BeanMove>().cam = this.gameObject.GetComponent<Camera>();
+
+            this.AddComponent<AudioSource>();
+            this.GetComponent<AudioSource>().loop = true;
+            this.GetComponent<AudioSource>().clip = clip;
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }

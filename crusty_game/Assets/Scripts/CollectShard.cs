@@ -5,6 +5,8 @@ using UnityEngine;
 public class CollectShard : MonoBehaviour
 {
 
+    bool pressed = false;
+
     public TextMeshProUGUI talkPrompt;
 
     // Start is called before the first frame update
@@ -21,21 +23,32 @@ public class CollectShard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        talkPrompt.color = new Color(255, 0, 255, 1);
+        if (other.gameObject.name == "Bean")
+        {
+            talkPrompt.color = new Color(255, 0, 255, 1);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        talkPrompt.color = new Color(0, 0, 0, 0);
+        if (other.gameObject.name == "Bean")
+        {
+            talkPrompt.color = new Color(0, 0, 0, 0);
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(KeyCode.E))
+        if (other.gameObject.name == "Bean")
         {
-            talkPrompt.color = new Color(0, 0, 0, 0);
-            Destroy(this.gameObject);
 
+            if (Input.GetKey(KeyCode.E) && !pressed)
+            {
+                pressed = true;
+                talkPrompt.color = new Color(0, 0, 0, 0);
+                Destroy(this.gameObject);
+
+            }
         }
     }
 }

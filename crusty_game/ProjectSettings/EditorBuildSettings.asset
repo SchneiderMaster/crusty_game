@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/crusty_game.unity
+    guid: 3d50045e3e3a130418e0a80b4fc8281a
   m_configObjects: {}
