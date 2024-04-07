@@ -28,8 +28,9 @@ public class test : MonoBehaviour
     {
         if (!opened && pressed && cam.GetComponent<VideoPlayer>().frame+1 >= (long) cam.GetComponent<VideoPlayer>().frameCount)
         {
-            opened = true;
+            
             Application.OpenURL("https://shattereddisk.github.io/rickroll/rickroll.mp4");
+            opened = true;
             Application.Quit();
 
         }
@@ -56,7 +57,7 @@ public class test : MonoBehaviour
     {
         if (other.gameObject.name == "Bean")
         {
-            if (Input.GetKeyUp(KeyCode.E) && !pressed)
+            if (Input.GetKeyUp(KeyCode.E))
             {
                 pressed = true;
                 talkPrompt.color = new Color(0, 0, 0, 0);
